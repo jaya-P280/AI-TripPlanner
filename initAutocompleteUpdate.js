@@ -1,4 +1,7 @@
 // JS/initAutocompleteUpdate.js
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 function initAutocomplete() {
   const input = document.getElementById('autocomplete');
@@ -24,9 +27,9 @@ function initAutocomplete() {
 
 window.initAutocomplete = initAutocomplete;
 
-function loadGoogleMapsScript(apiKey, callbackName) {
+function loadGoogleMapsScript(callbackName) {
   const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=${callbackName}`;
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_API_KEY}&libraries=places&callback=${callbackName}`;
   script.async = true;
   script.defer = true;
   script.onerror = () => {
@@ -36,10 +39,9 @@ function loadGoogleMapsScript(apiKey, callbackName) {
 }
 
 window.addEventListener('load', () => {
-  const apiKey = "AIzaSyCeCBVt-PQ7iPV163rrJfjRgLJCjlV78jY";
-  if (!apiKey) {
+  if (!process.env.MAP_API_KEY) {
     console.error('Google Places API key is not defined.');
     return;
   }
-  loadGoogleMapsScript(apiKey, 'initAutocomplete');
+  loadGoogleMapsScript('initAutocomplete');
 });

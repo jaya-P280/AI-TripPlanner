@@ -16,8 +16,6 @@ const itineraryDays = document.getElementById('itinerary-days');
 const saveTripBtn = document.getElementById('save-trip');
 const newTripBtn = document.getElementById('new-trip');
 
-const apiKey = 'AIzaSyCeCBVt-PQ7iPV163rrJfjRgLJCjlV78jY'; // Google Places API key
-
 async function fetchPlaceId(placeName, lat, lng) {
   return new Promise((resolve) => {
     const mapElement = document.getElementById('map');
