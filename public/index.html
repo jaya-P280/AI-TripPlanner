@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Trip Planner</title>
+  <link rel="icon" href="logo.png" type="png" />
+  <!-- Firebase -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header top-nav">
+    <div class="container">
+      <div class="logo brand-name">
+        <i class="fas fa-map-marked-alt"></i> AI Trip Planner
+      </div>
+
+      <div class="auth-buttons">
+        <div id="userProfile" class="user-profile" style="display: none; position: relative; align-items: center; cursor: pointer;">
+          <img id="userPic" src="" alt="User Picture" class="user-profile-pic" />
+          <div id="profileDropdown" class="profile-dropdown" style="display: none; position: fixed; top: 70px; right: 45px; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 230px;">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px 15px;">
+              <img id="userDropdownPic" src="" alt="User" style="width: 40px; height: 40px; border-radius: 50%;" />
+              <div>
+                <div id="userName" style="font-weight: bold;"></div>
+                <div id="userEmail" style="font-size: 0.9rem; color: #666;"></div>
+              </div>
+            </div>
+            <hr style="margin: 0;">
+            <a href="my-trips.html" class="dropdown-item hover-shadow">
+              <i class="fas fa-history"></i> My Trips
+            </a>
+            <a href="#" id="LogOutLink" class="dropdown-item hover-shadow" style="display: block; padding: 10px 15px; color: #22223a; text-decoration: none;">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+            </a>
+          </div>
+        </div>
+
+        <a href="#" id="signInLink" class="sign-up">Sign In</a>
+
+        <a href="#" id="mode-toggle" class="modes" aria-label="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+<!-- Auth Dialog -->
+<dialog id="authDialog">
+  <button id="closeDialogBtn" class="dialog-close-btn">&times;</button>
+  <div class="auth-content">
+
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h1 class="text-xl font-bold mb-2">Log in</h1>
+
+      <input type="text" id="loginEmail" placeholder="Username or Email" class="auth-input" />
+      <div class="password-wrapper">
+        <input type="password" id="loginPassword" placeholder="Password" class="auth-input" />
+        <i class="fas fa-eye-slash toggle-password" data-target="loginPassword"></i>
+      </div>
+
+      <p class="text-center">
+        <a href="#" id="showForgotPassword" class="auth-link">Forgot Password?</a>
+      </p>
+      <button id="loginContinue" class="auth-btn">Continue</button>
+
+      <p class="mb-3 text-gray-600">
+        New user?
+        <a href="#" id="showSignup" class="auth-link">Sign Up</a>
+      </p>
+
+      <div class="divider"><span>or</span></div>
+    </div>
+
+
+    <!-- Signup Form -->
+    <div id="signupForm" style="display: none;">
+      <h1 class="text-xl font-bold mb-2">Create Account</h1>
+
+      <input type="text" id="signupFirstName" placeholder="First Name" class="auth-input" />
+      <input type="text" id="signupLastName" placeholder="Last Name" class="auth-input" />
+      <input type="text" id="signupEmail" placeholder="Username or Email" class="auth-input" />
+      <div class="password-wrapper">
+        <input type="password" id="signupPassword" placeholder="Password" class="auth-input" />
+        <i class="fas fa-eye-slash toggle-password" data-target="signupPassword"></i>
+      </div>
+      <div class="password-wrapper">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" class="auth-input" />
+        <i class="fas fa-eye-slash toggle-password" data-target="confirmPassword"></i>
+      </div>
+
+      <button id="signupContinue" class="auth-btn">Continue</button>
+
+      <p class="mb-3 text-gray-600">
+        Already have an account?
+        <a href="#" id="showLogin" class="auth-link">Log in</a>
+      </p>
+
+      <div class="divider"><span>or</span></div>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <form id="forgotPasswordForm" class="auth-form" style="display: none;">
+      <h2 class="form-title">Reset Password</h2>
+      
+      <div class="form-group">
+        <label for="resetEmail">Email</label>
+        <input 
+          type="email" 
+          id="resetEmail" 
+          placeholder="Enter your email" 
+          class="auth-input"
+          required
+        />
+        <div class="inline-error"></div>
+      </div>
+      
+      <button 
+        type="button" 
+        id="resetPasswordBtn" 
+        class="auth-btn"
+      >
+        Send Reset Email
+      </button>
+      
+      <div class="form-footer">
+        Remember your password? 
+        <a href="#" id="backToLogin" class="auth-link">Back to Login</a>
+      </div>
+      <div class="divider"><span>or</span></div>
+    </form>
+
+    <button id="googleSignInBtn" class="google-signin-button">
+      <img src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA" alt="Google logo" class="google-icon">
+      Sign in with Google
+    </button>
+  </div>
+</dialog>
+
+
+  <!-- Page Content -->
+  <main>
+    <section class="hero">
+      <h1>Discover Your Trip with AI:</h1>
+      <h2>Personalized Itineraries at your Fingertips</h2>
+      <p>Plan your trip smartly with the power of AI!</p>
+      <a href="planner.html" class="get-started-btn">Get Started, It's Free</a>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="theme.js"></script>
+  <script type="module" src="indexAuth.js"></script>
+
+</body>
+</html>

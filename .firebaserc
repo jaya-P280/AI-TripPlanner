@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "pushnotification-9df04",
+    "staging": "ai-trip-planner-58924"
+  },
+  "targets": {},
+  "etags": {}
+}

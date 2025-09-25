@@ -1,0 +1,465 @@
+.trip-details-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Header layout overrides */
+.main-header, .top-nav, .container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.logo, .brand-name {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
+.auth-buttons, .nav-actions {
+  margin-left: auto !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+.trip-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.trip-header h1 {
+  font-size: 2.5rem;
+  color: #f56551;
+  margin-bottom: 0.5rem;
+}
+
+.trip-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.trip-meta span {
+  background: #dfdede;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.hotel-section, .itinerary-section {
+  margin: 3rem 0;
+}
+
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.hotel-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.hotel-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.hotel-info {
+  padding: 1.5rem;
+}
+
+.hotel-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #22223a;
+}
+
+.hotel-price {
+  font-weight: bold;
+  color: #f56551;
+  margin-bottom: 0.5rem;
+}
+
+.hotel-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.hotel-rating i {
+  color: #ffc107;
+  margin-right: 0.3rem;
+}
+
+.activity-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.activity-rating i {
+  color: #ffc107;
+  margin-right: 0.3rem;
+}
+
+.hotel-description {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.itinerary-day {
+  margin-bottom: 2rem;
+  border: 1px solid #dad9d9;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.day-title {
+  font-size: 1.3rem;
+  color: #22223a;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #dad9d9;
+}
+
+.activity {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #dad9d9;
+}
+
+.activity:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.activity-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.activity-info {
+  flex: 1;
+}
+
+.activity-name {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #22223a;
+}
+
+.activity-time {
+  font-size: 0.9rem;
+  color: #f56551;
+  margin-bottom: 0.5rem;
+}
+
+.activity-price {
+  font-size: 0.9rem;
+  color: #4CAF50;
+  margin-bottom: 0.5rem;
+}
+
+.activity-description {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.save-trip-btn, .new-trip-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  width: auto;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.save-trip-btn {
+  background-color: #f56551;
+  color: white;
+}
+
+.save-trip-btn:hover {
+  background-color: white;
+  color: #f56551;
+  border-radius: 9999px;
+  border: 2px solid #f56551;
+}
+
+.new-trip-btn {
+  background-color: #22223a;
+  color: white;
+}
+
+.new-trip-btn:hover {
+  background: white;
+  color: #22223a;
+  border-radius: 9999px;
+  border: 2px solid #22223a;
+}
+
+/* Responsive button styles */
+@media (max-width: 1024px) {
+  .save-trip-btn,
+  .new-trip-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .save-trip-btn,
+  .new-trip-btn {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Dark Mode Styles */
+body.dark-mode .trip-header h1 {
+  color: #ff7b65;
+}
+
+body.dark-mode .save-trip-btn:hover {
+  background: black;
+  color: #f56551;
+  border: 2px solid #f56551;
+}
+
+body.dark-mode .new-trip-btn:hover {
+  background: black;
+  color: white;
+  border-radius: 9999px;
+  border: 2px solid white;
+}
+
+/* Fix text color for Plan Another Trip button in dark mode */
+body.dark-mode .new-trip-btn {
+  color: white;
+}
+
+body.dark-mode .trip-meta span {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode .hotel-card {
+  border-color: #444;
+  background: #222;
+}
+
+body.dark-mode .hotel-name {
+  color: #fff;
+}
+
+body.dark-mode .hotel-description {
+  color: #bbb;
+}
+
+body.dark-mode .itinerary-day {
+  border-color: #444;
+  background: #222;
+}
+
+body.dark-mode .day-title {
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark-mode .activity {
+  border-color: #444;
+}
+
+body.dark-mode .activity-name {
+  color: #fff;
+}
+
+body.dark-mode .activity-description {
+  color: #bbb;
+}
+
+@media (max-width: 768px) {
+  .hotel-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .activity {
+    flex-direction: column;
+  }
+  
+  .activity-image {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* === Additional Responsive Styles === */
+@media (max-width: 1024px) {
+  /* Tablet styles */
+  .trip-details-container {
+    padding: 0.5rem;
+  }
+  
+  .trip-header h1 {
+    font-size: 2rem;
+  }
+  
+  .hotel-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile styles */
+  .trip-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .trip-meta {
+    gap: 0.5rem;
+  }
+  
+  .hotel-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .activity {
+    flex-direction: column;
+  }
+  
+  .activity-image {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .save-trip-btn, 
+  .new-trip-btn {
+    width: 100%;
+  }
+}
+
+/* Toast message styles */
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  max-width: 350px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 10000;
+  left: 80%;
+  top: 20px;
+  font-size: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s;
+}
+
+.toast.show {
+  visibility: visible;
+  opacity: 1;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@media (max-width: 1024px) {
+  .toast {
+    left: 50%;
+    margin-left: 0;
+    max-width: 90%;
+    min-width: auto;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    top: 10px;
+    font-size: 0.85rem;
+    padding: 12px;
+  }
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 20px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {top: 20px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
+.hotel-image:hover, .activity-image:hover {
+  opacity: 0.9;
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.hotel-image, .activity-image {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.save-trip-btn:hover {
+  background: white;
+  color: #f56551;
+  border-radius: 9999px;
+  border: 2px solid #f56551;
+}
+
+.new-trip-btn:hover {
+  background: white;
+  color: #22223a;
+  border-radius: 9999px;
+  border: 2px solid #22223a;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Trip Details - AI Trip Planner</title>
+  <link rel="icon" href="logo.png" type="png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="trip-details.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeCBVt-PQ7iPV163rrJfjRgLJCjlV78jY&libraries=places"
+  async
+  defer>
+</script>
+
+</head>
+<body>
+  <div id="map" style="display:none;"></div>
+  <header class="main-header top-nav">
+    <div class="container">
+      <div class="logo brand-name">
+        <i class="fas fa-map-marked-alt"></i> AI Trip Planner
+      </div>
+      <div class="auth-buttons">
+        <div id="userProfile" class="user-profile" style="display: none; position: relative; align-items: center; cursor: pointer;">
+          <img id="userPic" src="" alt="User Picture" class="user-profile-pic" />
+          <div id="profileDropdown" class="profile-dropdown" style="display: none; position: fixed; top: 70px; right: 45px; background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); z-index: 1000; min-width: 230px;">
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px 15px;">
+              <img id="userDropdownPic" src="" alt="User" style="width: 40px; height: 40px; border-radius: 50%;" />
+              <div>
+                <div id="userName" style="font-weight: bold;"></div>
+                <div id="userEmail" style="font-size: 0.9rem; color: #666;"></div>
+              </div>
+            </div>
+            <hr style="margin: 0;">
+            <a href="my-trips.html" class="dropdown-item hover-shadow">
+              <i class="fas fa-history"></i> My Trips
+            </a>
+            <a href="#" id="LogOutLink" class="dropdown-item hover-shadow" style="display: block; padding: 10px 15px; color: #22223a; text-decoration: none;">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out
+            </a>
+          </div>
+        </div>
+        <a href="#" id="signInLink" class="sign-up">Sign In</a>
+        <a href="#" id="mode-toggle" class="modes" aria-label="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="trip-details-container">
+    <div class="trip-header">
+      <h1 id="trip-location"></h1>
+      <div class="trip-meta">
+        <span id="trip-duration"></span>
+        <span id="trip-budget"></span>
+        <span id="trip-companion"></span>
+      </div>
+    </div>
+
+    <section class="hotel-section">
+      <h2>Recommended Hotels</h2>
+      <div id="hotel-options" class="hotel-grid"></div>
+    </section>
+
+    <section class="itinerary-section">
+      <h2>Your Itinerary</h2>
+      <div id="itinerary-days"></div>
+    </section>
+
+    <div class="action-buttons">
+      <button id="save-trip" class="save-trip-btn">Save This Trip</button>
+      <button id="new-trip" class="new-trip-btn">Plan Another Trip</button>
+    </div>
+  </main>
+
+  <script src="theme.js"></script>
+  <script type="module" src="trip-details.js"></script>
+  <script type="module" src="indexAuth.js"></script>
+
+  <!-- Toast container for notifications -->
+  <div id="toast" class="toast"></div>
+</body>
+</html>
