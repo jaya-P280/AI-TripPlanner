@@ -38,7 +38,6 @@ const resetEmail = document.getElementById('resetEmail');
 if (signInLink) {
   signInLink.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log("SignIn button clicked");
     if (authDialog) {
       if (typeof authDialog.showModal === "function") {
         authDialog.showModal();
