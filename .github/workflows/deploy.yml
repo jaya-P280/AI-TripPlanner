@@ -8,7 +8,7 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run build
+          npm install dotenv
         env:
           APP_API_KEY: ${{ secrets.GEMINI_API}}
           MAP_API_KEY: ${{ secrets.MAP_API}}

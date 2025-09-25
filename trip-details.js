@@ -14,7 +14,7 @@ const tripCompanion = document.getElementById('trip-companion');
 const hotelOptions = document.getElementById('hotel-options');
 const itineraryDays = document.getElementById('itinerary-days');
 const saveTripBtn = document.getElementById('save-trip');
-const newTripBtn = document.getElementById('new-trip');
+const newTripBtn = document.getElementById('new-trip');.3
 
 async function fetchPlaceId(placeName, lat, lng) {
   return new Promise((resolve) => {
