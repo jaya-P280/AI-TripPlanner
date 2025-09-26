@@ -8,7 +8,6 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run build
       - name: Inject Gemini API Key
         run: |
           sed -i "s/__APP_API_KEY__/${{ secrets.GEMINI_API }}/g" public/planner.js
