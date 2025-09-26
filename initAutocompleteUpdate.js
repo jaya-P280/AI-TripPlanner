@@ -1,4 +1,3 @@
-require('dotenv').config();
 
 function initAutocomplete() {
   const input = document.getElementById('autocomplete');
