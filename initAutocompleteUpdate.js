@@ -24,8 +24,9 @@ function initAutocomplete() {
 window.initAutocomplete = initAutocomplete;
 
 function loadGoogleMapsScript(callbackName) {
+  const apiKey='__MAP_API_KEY__'; // <-- placeholder
   const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_API_KEY}&libraries=places&callback=${callbackName}`;
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=${callbackName}`;
   script.async = true;
   script.defer = true;
   script.onerror = () => {

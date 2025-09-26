@@ -50,7 +50,8 @@ async function generateTrip() {
 
   try {
     // Call Gemini API to generate trip plan using fetch API instead of @google/genai client
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.APP_API_KEY}`, {
+    const apikey='__APP_API_KEY__'; // <-- placeholder
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apikey}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -8,7 +8,10 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm install dotenv
-        env:
-          APP_API_KEY: ${{ secrets.GEMINI_API}}
-          MAP_API_KEY: ${{ secrets.MAP_API}}
+          npm run build
+      - name: Inject Gemini API Key
+        run: |
+          sed -i "s/__APP_API_KEY__/${{ secrets.GEMINI_API }}/g" public/planner.js
+      - name: Inject Map API Key
+        run: |
+          sed -i "s/__MAP_API_KEY__/${{ secrets.MAP_API_KEY }}/g" public/initAutocompleteUpdate.js
