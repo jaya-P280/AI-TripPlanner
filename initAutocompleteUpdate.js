@@ -1,7 +1,4 @@
-// JS/initAutocompleteUpdate.js
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+require('dotenv').config();
 
 function initAutocomplete() {
   const input = document.getElementById('autocomplete');
