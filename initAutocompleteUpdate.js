@@ -36,7 +36,7 @@ function loadGoogleMapsScript(callbackName) {
 }
 
 window.addEventListener('load', () => {
-  if (!process.env.MAP_API_KEY) {
+  if (!apiKey) {
     console.error('Google Places API key is not defined.');
     return;
   }
