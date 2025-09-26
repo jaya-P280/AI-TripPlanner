@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install and Build
+      - name: Install 
         run: |
           npm install
       - name: Inject Gemini API Key
