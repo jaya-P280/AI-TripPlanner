@@ -1,3 +1,4 @@
+// JS/initAutocompleteUpdate.js
 
 function initAutocomplete() {
   const input = document.getElementById('autocomplete');
@@ -23,8 +24,8 @@ function initAutocomplete() {
 
 window.initAutocomplete = initAutocomplete;
 
-function loadGoogleMapsScript(callbackName) {
-  const apiKey='__MAP_API_KEY__'; // <-- placeholder
+function loadGoogleMapsScript(apiKey, callbackName) {
+  console.log('Loading Google Maps script with API key:', apiKey);
   const script = document.createElement('script');
   script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=${callbackName}`;
   script.async = true;
@@ -36,10 +37,11 @@ function loadGoogleMapsScript(callbackName) {
 }
 
 window.addEventListener('load', () => {
-  const apiKey='__MAP_API_KEY__';
+  const apiKey = "AIzaSyCeCBVt-PQ7iPV163rrJfjRgLJCjlV78jY"; // Hardcoded API key
+  console.log('Using hardcoded Google Places API key:', apiKey);
   if (!apiKey) {
     console.error('Google Places API key is not defined.');
     return;
   }
-  loadGoogleMapsScript('initAutocomplete');
+  loadGoogleMapsScript(apiKey, 'initAutocomplete');
 });
