@@ -1,4 +1,3 @@
-
 async function generateTrip() {
   const destination = document.getElementById('autocomplete').value.trim();
   const days = document.querySelector('.days-input').value.trim();
@@ -49,9 +48,7 @@ async function generateTrip() {
   };
 
   try {
-    // Call Gemini API to generate trip plan using fetch API instead of @google/genai client
-    const apikey='__APP_API_KEY__'; // <-- placeholder
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apikey}`, {
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAZb0W65PxP-F-EuCuhwA4TLBcyYP9dvK0', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -122,8 +119,6 @@ async function generateTrip() {
       tripDetails,
       generatedTrip
     }))}`;
-    // Clean the generated content to remove any markdown or code block syntax
-    // Clean the generated content to remove any markdown or code block syntax
   } catch (error) {
     console.error('Error generating trip:', error);
     const toast = document.getElementById("toast");
