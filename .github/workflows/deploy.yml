@@ -1,0 +1,16 @@
+name: Build and Deploy
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install 
+        run: |
+          npm install
+      - name: Inject Gemini API Key
+        run: |
+          sed -i "s/__APP_API_KEY__/${{ secrets.GEMINI_API }}/g" public/planner.js
+      - name: Inject Map API Key
+        run: |
+          sed -i "s/__MAP_API_KEY__/${{ secrets.MAP_API_KEY }}/g" public/initAutocompleteUpdate.js
